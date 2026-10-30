@@ -1,0 +1,288 @@
+/* WXT resets the host with `:host { all: initial !important }`; these selectors are more specific. */
+:host(:not(.floating)) {
+  display: inline-block !important;
+  margin-right: 8px !important;
+  vertical-align: middle !important;
+}
+
+:host(.floating) {
+  position: fixed !important;
+  right: 24px !important;
+  bottom: 24px !important;
+  z-index: 100 !important;
+}
+
+/* GitHub's CSS custom properties pierce the shadow root, so the UI follows the page's light/dark theme. */
+.root {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--fgColor-default, #1f2328);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 32px;
+  padding: 0 12px;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  color: var(--button-default-fgColor-rest, var(--fgColor-default, #25292e));
+  background: var(--button-default-bgColor-rest, #f6f8fa);
+  border: 1px solid var(--button-default-borderColor-rest, var(--borderColor-default, #d1d9e0));
+  border-radius: 6px;
+}
+
+.trigger:hover {
+  background: var(--button-default-bgColor-hover, #eff2f5);
+}
+
+.trigger--floating {
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 20px;
+  box-shadow: var(--shadow-floating-medium, 0 8px 24px rgba(66, 74, 83, 0.2));
+}
+
+.panel {
+  position: fixed;
+  z-index: 100;
+  width: 360px;
+  max-height: min(600px, calc(100vh - 80px));
+  overflow: auto;
+  background: var(--overlay-bgColor, var(--bgColor-default, #ffffff));
+  border: 1px solid var(--borderColor-default, #d1d9e0);
+  border-radius: 12px;
+  box-shadow: var(--shadow-floating-large, 0 12px 48px rgba(31, 35, 40, 0.3));
+}
+
+.panel__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--borderColor-muted, #d1d9e0b3);
+}
+
+.panel__header strong {
+  flex: 1;
+}
+
+.panel__body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+}
+
+.icon-button {
+  width: 28px;
+  height: 28px;
+  font-size: 18px;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  border-radius: 6px;
+  color: var(--fgColor-muted, #59636e);
+}
+
+.icon-button:hover {
+  background: var(--control-transparent-bgColor-hover, #818b981a);
+}
+
+.muted {
+  color: var(--fgColor-muted, #59636e);
+}
+
+.panel > .muted,
+.panel > .notice {
+  margin: 16px;
+}
+
+.notice {
+  margin: 0;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: var(--bgColor-muted, #f6f8fa);
+}
+
+.notice p {
+  margin: 0 0 8px;
+}
+
+.notice--error {
+  color: var(--fgColor-danger, #d1242f);
+  background: var(--bgColor-danger-muted, #ffebe9);
+}
+
+.notice--success {
+  color: var(--fgColor-success, #1a7f37);
+  background: var(--bgColor-success-muted, #dafbe1);
+}
+
+.segmented {
+  display: flex;
+  padding: 2px;
+  border-radius: 6px;
+  background: var(--controlTrack-bgColor-rest, #e6eaef);
+}
+
+.segmented__option {
+  flex: 1;
+  height: 28px;
+  cursor: pointer;
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
+
+.segmented__option.is-selected {
+  font-weight: 600;
+  background: var(--controlKnob-bgColor-rest, #ffffff);
+  border-color: var(--controlKnob-borderColor-rest, #818b98);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field__label {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+select,
+input,
+textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 5px 12px;
+  background: var(--bgColor-default, #ffffff);
+  border: 1px solid var(--borderColor-default, #d1d9e0);
+  border-radius: 6px;
+}
+
+select,
+input {
+  height: 32px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+select:focus,
+input:focus,
+textarea:focus,
+button:focus-visible {
+  outline: 2px solid var(--focus-outlineColor, #0969da);
+  outline-offset: -1px;
+}
+
+.chips,
+.suggestions {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 4px 2px 2px;
+  font-size: 12px;
+  border-radius: 12px;
+  background: var(--bgColor-accent-muted, #ddf4ff);
+}
+
+.chip button {
+  cursor: pointer;
+  background: none;
+  border: 0;
+  padding: 0 4px;
+}
+
+img {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+
+.suggestions {
+  border: 1px solid var(--borderColor-default, #d1d9e0);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.suggestions button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 6px 12px;
+  text-align: left;
+  cursor: pointer;
+  background: none;
+  border: 0;
+}
+
+.suggestions button:hover,
+.suggestions button:focus-visible {
+  background: var(--control-transparent-bgColor-hover, #818b981a);
+}
+
+.preview {
+  margin: 0;
+  padding: 8px 12px;
+  font-family: inherit;
+  font-size: 13px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  border-radius: 6px;
+  background: var(--bgColor-muted, #f6f8fa);
+}
+
+.btn {
+  height: 32px;
+  padding: 0 12px;
+  font-weight: 500;
+  cursor: pointer;
+  background: var(--button-default-bgColor-rest, #f6f8fa);
+  border: 1px solid var(--button-default-borderColor-rest, #d1d9e0);
+  border-radius: 6px;
+}
+
+.btn--primary {
+  color: var(--button-primary-fgColor-rest, #ffffff);
+  background: var(--button-primary-bgColor-rest, #1f883d);
+  border-color: var(--button-primary-borderColor-rest, #1f232826);
+}
+
+.btn--primary:hover:not(:disabled) {
+  background: var(--button-primary-bgColor-hover, #1c8139);
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}

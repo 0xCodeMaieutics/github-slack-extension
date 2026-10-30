@@ -1,0 +1,22 @@
+{
+  "name": "github-slack-extension",
+  "version": "1.0.0",
+  "description": "Chromium extension that sends GitHub pull request review requests to Slack.",
+  "scripts": {
+    "dev": "wxt",
+    "build": "wxt build",
+    "zip": "wxt zip",
+    "compile": "tsc --noEmit",
+    "postinstall": "wxt prepare"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.10.6",
+    "typescript": "^7.0.2",
+    "wxt": "^0.21.5"
+  },
+  "dependencies": {
+    "preact": "^11.1.0"
+  },
+  "private": true,
+  "type": "module"
+}
