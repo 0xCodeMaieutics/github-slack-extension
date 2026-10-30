@@ -1,0 +1,18 @@
+{
+  "display_information": {
+    "name": "PR Review Requests",
+    "description": "Send pull request review requests from GitHub to Slack.",
+    "background_color": "#24292f"
+  },
+  "oauth_config": {
+    "scopes": {
+      "user": ["chat:write", "users:read", "channels:read", "groups:read", "im:write"]
+    }
+  },
+  "settings": {
+    "org_deploy_enabled": false,
+    "socket_mode_enabled": false,
+    "is_hosted": false,
+    "token_rotation_enabled": false
+  }
+}
